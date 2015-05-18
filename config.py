@@ -25,13 +25,15 @@ nodes = []
 tags = []
 count = 0
 
+G.edge_attr['dir'] = 'forward'
+
 #get name, inputTags, and outputTags of each loaded module
 for child in root:
 	count += 1
 
 	#add new node to nodelist and graph
 	n = node(child.attrib['type'])
-	G.add_node(child.attrib['type'], id=count)
+	G.add_node(''.join([child.attrib['type'], str(count)]), id=count)
 
 	print(child.attrib['type'])
 
@@ -68,7 +70,7 @@ for a in nodes:
 		for tag in a.output_tags:
 			if tag in b.input_tags:
 				print(tag, ' from ', a.name, '(', a.id_num, ') to ', b.name, '(', b.id_num,')')
-				G.add_edge(a.name, b.name)
+				G.add_edge(''.join([a.name, str(a.id_num)]), ''.join([b.name, str(b.id_num)]))
 
 G.draw('graph.png',prog='circo')
 		
