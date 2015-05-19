@@ -72,5 +72,5 @@ for a in nodes:
 				print(tag, ' from ', a.name, '(', a.id_num, ') to ', b.name, '(', b.id_num,')')
 				G.add_edge(''.join([a.name, str(a.id_num)]), ''.join([b.name, str(b.id_num)]))
 
-G.draw('graph.png',prog='circo')
+G.draw('graph.png', prog='dot')
 		
