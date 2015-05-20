@@ -70,7 +70,7 @@ for a in nodes:
 		for tag in a.output_tags:
 			if tag in b.input_tags:
 				print(tag, ' from ', a.name, '(', a.id_num, ') to ', b.name, '(', b.id_num,')')
-				G.add_edge(a.name +' '+ str(a.id_num), b.name +' '+ str(b.id_num))
+				G.add_edge(a.name +' '+ str(a.id_num), b.name +' '+ str(b.id_num), label=tag)
 
 G.draw('graph.png', prog='dot')
 		
